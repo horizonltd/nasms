@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+
+
+
+{% block body_block %}
+<style>
+    body {
+        background-color: white;
+
+    }
+
+    .container-1 {
+        background-color: whitesmoke;
+        margin: auto;
+        padding: 0px;
+        height: 700px;
+
+
+
+
+
+        /* -webkit-animation: mymove 5s infinite;
+        /* Safari 4.0 - 8.0 */
+        /* animation: mymove 5s infinite; */ 
+
+
+
+        padding: 10px 10px 20px 10px;
+        border: 1px solid #BFBFBF;
+        background-color: white;
+        box-shadow: 10px 10px 5px #aaaaaa;
+    
+    }
+
+    
+</style>
+<br />
+<div class="container-1">
+    <div class="top-cover"></div>
+
+    <h2 class="h1-responsive font-weight-bold my-5">Authentication Page</h2>
+
+    <!-- Section: Blog v.1 -->
+    <section class="my-5">
+
+        <!-- Section heading -->
+
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-lg-5">
+
+                <!-- Featured image -->
+                <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+
+
+                    <div class="container">
+                        <!-- <div class="row">
+                            <div class="col-md-6"> -->
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+
+                            <input type="submit" class="btn btn-sm btn-info my-4" type="submit" value="Login"
+                                size="100px">
+                            <div>
+                                <!-- Forgot password -->
+                                <a href="">Forgot password?</a>
+                            </div>
+                        </form>
+                        <!-- </div>
+                        </div> -->
+                    </div>
+
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-lg-7">
+
+                <!-- Post title -->
+                <h3 class="font-weight-bold mb-3"><strong>Login Instructions</strong></h3>
+                <!-- Excerpt -->
+                <p>Enter your username and password. This will take you to the Profile screen. Optionally you 
+                can personalize your username and other details after login to the Dashboard.</p>
+                <!-- Post data -->
+
+                <!-- Read more button -->
+                <a href="{% url 'admin:index' %}" class="btn btn-sm btn-info my-4">I don't have an account</a>
+
+            </div>
+
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+
+    </section>
+    <!-- Section: Blog v.1 -->
+
+</div>
+
+{% endblock %}

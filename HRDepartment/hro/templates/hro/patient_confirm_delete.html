@@ -1,0 +1,16 @@
+{% extends "hro/hro_base.html" %}
+{% load bootstrap4 %}
+{% block body_block %}
+
+<div class="jumbotron">
+<p>Do you want to delete <bold>{{ delete_patient_context.Patient_Name }}</bold> from patient list?</p>
+
+<form method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  <input type="submit" class="btn btn-danger" value="Delete">
+  <a href="{% url 'hro:detail' pk=delete_patient_context.pk %}">Cancel</a>
+
+</form>
+</div>
+{% endblock %}

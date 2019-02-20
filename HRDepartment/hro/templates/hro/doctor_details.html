@@ -1,0 +1,29 @@
+{% extends 'hro/hro_base.html' %}
+{% block body_block %}
+
+<div class="jumbotron">
+    <h2>Doctor's Details and List of Patients Assigned</h2>
+    
+    <p>Doctor's Name: {{ doctor_details.Doctor_Name }}</p>
+    <p>Doctor's Department: {{ doctor_details.Department }}</p>
+    <p>Location: {{ doctor_details.Location }}</p>
+    <p>Qualification: {{ doctor_details.Qualification }}</p>
+
+    <H2>Patient Under Doctor, {{doctor_details.Doctor_Name}} Care:</H2>
+
+    {% for patient in doctor_details.patientsRefName.all %}
+
+    <p>
+        {{patient.Patient_Name}}: Is refered to, {{patient.Refer_to_Department}} Department.
+    </p>
+
+    {% endfor %}
+
+</div>
+
+<div class="container">
+    <p><a class="btn btn-warning" href="{% url 'hro:update_patient' pk=doctor_details.pk %}">Update Patient Record</a></p>
+</div>
+
+
+{% endblock %}

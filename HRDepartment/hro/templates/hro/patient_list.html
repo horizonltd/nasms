@@ -1,0 +1,81 @@
+{% extends "hro/hro_base.html" %}
+{% block body_block %}
+
+<style>
+    body {
+        background-color: white;
+    }
+
+    .container-1 {
+        background-color: whitesmoke;
+        margin: auto;
+        padding: 0px;
+        height: 700px;
+
+
+        
+        padding: 10px 10px 20px 10px;
+        border: 1px solid #BFBFBF;
+        background-color: white;
+        box-shadow: 10px 10px 5px #aaaaaa;
+    }
+
+</style>
+<br/>
+
+<div class="container-1">
+
+
+            <!-- Grid column -->
+            <div class="col-lg-7">
+
+                <!-- Post title -->
+                <h3 class="font-weight-bold mb-3"><strong>Updated List of Patient</strong></h3>
+                <!-- Excerpt -->
+                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
+                    placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus et aut officiis
+                    debitis.</p>
+                <!-- Post data -->
+                <a href="{% url 'admin:index' %}" class="btn btn-sm btn-info my-4">Add Patient</a>
+                <!-- Read more button -->
+
+            </div>
+
+
+  <table class="table">
+    <thead class="thead-dark"></thead>
+    <tr>
+      <th scope="row">Patient ID</th>
+      <th scope="row">Patient Name</th>
+      <th scope="row">DOB</th>
+      <th scope="row">Phone Number</th>
+      <th scope="row">Address</th>
+      <th scope="row">Age</th>
+      <th scope="row">Symptom</th>
+      <th scope="row">Reported Sick on</th>
+
+    </tr>
+    </thead>
+    <tbody>
+      {% for patient_list in patient_list %}
+      <tr>
+        <td>{{ patient_list.id }}</td>
+        <td>{{ patient_list.Patient_Name }}</td>
+        <td>{{ patient_list.DOB }}</td>
+        <td>{{ patient_list.Phone_Number }}</td>
+        <td>{{ patient_list.Address }}</td>
+        <td>{{ patient_list.Age }}</td>
+        <td>{{ patient_list.Symptom }}</td>
+        <td>{{ patient_list.Date_Reported_Sick }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+{% endblock %}
